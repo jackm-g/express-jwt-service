@@ -16,16 +16,6 @@ var isProduction = process.env.NODE_ENV === 'production';
 // Create global app object
 var app = express();
 
-
-// TODO see if necessary for FE/BE de-coupling
-// var corsOption = {
-//   origin: ["http://localhost:3001", "https://github.com"],
-//   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
-//   credentials: true,
-//   exposedHeaders: ['Authorization']
-// };
-// app.use(cors(corsOption));
-
 // Normal express config defaults
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -38,7 +28,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(passport.initialize());
 
 var corsOption = {
-  origin: ["http://localhost:3001"],
+  origin: ["http://localhost:8080"],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   exposedHeaders: ['Content-type', 'Authorization']

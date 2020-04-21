@@ -25,3 +25,12 @@ Current Flow (Github OAuth):
 }
 ```
 6) Frontend should save `accessToken` either in a cookie (can be vulnerable to CSRF), localStorage (can be vulnerable to XSS), or in memory (most secure).
+
+## Environment Configurations
+After cloning, a `.env` file should be create with the below sample configuration:
+```
+GITHUB_CLIENT_ID=<IDFromGithubOAuthApp>
+GITHUB_CLIENT_SECRET=<SecretFromGithubOAuthApp>
+GITHUB_CALLBACK_URL=<server-host>/api/auth/redirect
+FRONTEND_SERVER=<frontend-host>
+```
