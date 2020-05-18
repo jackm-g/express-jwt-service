@@ -1,8 +1,8 @@
-# JWT based Auth Service
+# Github OAuth2.0 for JWT Bearer Auth
 ## Technologies
 * Web Framework: Expressjs https://expressjs.com/
 * DB: MongoDB through mongoose ORM https://mongoosejs.com/
-* OAuth with Github OAuth and passportjs
+* OAuth with Github OAuth2.0 apps and passportjs http://www.passportjs.org/packages/passport-github/
 * JWT through jsonwebtoken
 ## Description
 In progress.

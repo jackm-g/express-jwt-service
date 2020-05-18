@@ -42,9 +42,17 @@ if (!isProduction) {
 }
 
 if(isProduction){
-  mongoose.connect(`${process.env.MONGODB_URI}/authcollection`);
+  mongoose.connect(`${process.env.MONGODB_URI}/authcollection`)
+  .catch(error => {
+    console.log(`Mongoose failed to connect to ${process.env.MONGODB_URI}`);
+    console.log(error);
+  });
 } else {
-  mongoose.connect(`${process.env.MONGODB_URI}/authcollection`);  // 'mongodb://localhost/authcollection'
+  mongoose.connect(`${process.env.MONGODB_URI}/authcollection`)
+  .catch(error => {
+    console.log(`Mongoose failed to connect to ${process.env.MONGODB_URI}`);
+    console.log(error);
+  });;  // 'mongodb://localhost/authcollection'
   mongoose.set('debug', true);
 }
 
