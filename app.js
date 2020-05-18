@@ -28,7 +28,7 @@ app.use(express.static(__dirname + '/public'));
 app.use(passport.initialize());
 
 var corsOption = {
-  origin: ["http://localhost:8080"],
+  origin: [process.env.FRONTEND_SERVER, process.env.GITHUB_CALLBACK_URL],
   methods: 'GET,HEAD,PUT,PATCH,POST,DELETE',
   credentials: true,
   exposedHeaders: ['Content-type', 'Authorization']
