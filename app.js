@@ -42,9 +42,9 @@ if (!isProduction) {
 }
 
 if(isProduction){
-  mongoose.connect(process.env.MONGODB_URI);
+  mongoose.connect(`${process.env.MONGODB_URI}/authcollection`);
 } else {
-  mongoose.connect('mongodb://localhost/authcollection');
+  mongoose.connect(`${process.env.MONGODB_URI}/authcollection`);  // 'mongodb://localhost/authcollection'
   mongoose.set('debug', true);
 }
 

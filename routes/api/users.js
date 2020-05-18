@@ -4,7 +4,6 @@ var passport = require('passport');
 var User = mongoose.model('User');
 var jwt = require('jsonwebtoken');
 var secret = require('../../config').secret;
-var refreshAuth = require('../auth');
 var expressjwt = require('express-jwt');
 
 
@@ -59,7 +58,8 @@ function generateAccessToken(req, res, next) {
 }
 
 function sendAccessToken(req, res) {
-  console.log("sendAccessToken");
+  console.log("sendAccessToken:");
+  console.log(req.token);
   var accessToken = req.token;
   return res.json({ username: req.payload.username, accessToken: accessToken });
 }
@@ -78,7 +78,7 @@ function createAccessToken(payload) {
 
 function getTokenFromHeader(req) {
   console.log("getTokenFromHeader -- called");
-  if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Token') {
+  if (req.headers.authorization && req.headers.authorization.split(' ')[0] === 'Bearer') {
       console.log("Token found:");
       console.log(req.headers.authorization.split(' ')[1]);
       return req.headers.authorization.split(' ')[1];
