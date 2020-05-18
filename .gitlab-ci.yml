@@ -21,4 +21,6 @@ install_dependencies:
 
 testing_testing:
   stage: test
-  script: npm run serverstart
+  script: 
+    - npm install nodemon -g
+    - npm run serverstart
