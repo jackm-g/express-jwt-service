@@ -34,3 +34,6 @@ GITHUB_CLIENT_SECRET=<SecretFromGithubOAuthApp>
 GITHUB_CALLBACK_URL=<server-host>/api/auth/redirect
 FRONTEND_SERVER=<frontend-host>
 ```
+
+## Google Sign-In
+https://developers.google.com/identity/sign-in/web/backend-auth

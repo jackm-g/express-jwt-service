@@ -5,6 +5,7 @@ var User = mongoose.model('User');
 var jwt = require('jsonwebtoken');
 var secret = require('../../config').secret;
 var expressjwt = require('express-jwt');
+var google = require('../../config/google');
 
 
 // Auth with github
@@ -93,5 +94,14 @@ router.post('/auth/exchangetoken', expressjwt({
   userProperty: 'payload',
   getToken: getTokenFromHeader
 }), generateAccessToken, sendAccessToken);
+
+// Google Sign-In verify id_token from client is valid
+router.post('/auth/google/redirect', (req, res, next) => {
+  console.log("route: auth/google/redirect called");
+  console.log("idtoken in request body:")
+  console.log(req.body.idtoken);
+  var token = req.body.idtoken;
+  google.googleVerify(token);
+});
 
 module.exports = router;
